@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/alurafood-order-service?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: secret;123!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 0
+  servlet:
+    context-path: /alura-food/api
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka
